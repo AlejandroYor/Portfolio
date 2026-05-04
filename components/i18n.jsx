@@ -247,7 +247,7 @@ function LangSwitch() {
   const { lang, setLang } = useT();
   const isEn = lang === "en";
   return (
-    <div style={{
+    <div className="lang-switch" style={{
       display: "inline-flex", alignItems: "center",
       padding: 3, borderRadius: 999,
       background: "rgba(255,255,255,0.05)",

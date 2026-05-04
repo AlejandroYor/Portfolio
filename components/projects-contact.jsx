@@ -255,7 +255,7 @@ function ProjectCard({ p, i, total }) {
       top: topOffset,
       paddingBottom: i === total - 1 ? 0 : 12,
     }}>
-      <div style={{
+      <div className="project-card" style={{
         position: "relative",
         background: p.color,
         color: fg,
@@ -270,7 +270,7 @@ function ProjectCard({ p, i, total }) {
         overflow: "hidden",
       }}>
         {/* number watermark */}
-        <span style={{
+        <span className="project-watermark" style={{
           position: "absolute", right: 32, top: 28,
           fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.2em",
           color: isDark ? "rgba(245,245,242,0.4)" : "rgba(12,12,12,0.4)",
@@ -293,13 +293,13 @@ function ProjectCard({ p, i, total }) {
             }}>{(p.yearKey ? t(p.yearKey) : p.year)}</span>
           </div>
 
-          <h3 style={{
+          <h3 className="project-title" style={{
             fontFamily: "Kanit, sans-serif", fontWeight: 400,
             fontSize: "clamp(36px, 4.5vw, 60px)", lineHeight: 1.0, letterSpacing: "-0.025em",
             margin: 0, textTransform: "lowercase",
           }}>{t(p.titleKey).toLowerCase()}</h3>
 
-          <p style={{
+          <p className="project-desc" style={{
             fontFamily: "Kanit, sans-serif", fontWeight: 300, fontSize: 17, lineHeight: 1.55,
             color: fgMuted, margin: 0, textWrap: "pretty",
           }}>{t(p.descKey)}</p>
@@ -341,7 +341,7 @@ function ProjectCard({ p, i, total }) {
         </div>
 
         {/* artwork */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%" }}>
+        <div className="project-art-wrap" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%" }}>
           {art}
         </div>
       </div>
@@ -354,7 +354,7 @@ function ProjectsSection() {
   return (
     <section id="projects" style={{ position: "relative", padding: "140px 32px 0", background: "#0C0C0C" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", gap: 40, alignItems: "end", marginBottom: 60 }}>
+        <div className="projects-header" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", gap: 40, alignItems: "end", marginBottom: 60 }}>
           <FadeIn>
             <div>
               <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.22em", color: "var(--accent)", marginBottom: 18 }}>
@@ -446,7 +446,7 @@ function ContactSection({ whatsappNumber, whatsappMessage }) {
         </FadeIn>
 
         <FadeIn delay={350}>
-          <div style={{ marginTop: 44, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+          <div className="contact-buttons" style={{ marginTop: 44, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <ContactButton href={wa} variant="primary" external icon={<Icon.WhatsApp size={11} />}>{t("contact.wa")}</ContactButton>
             <ContactButton href="mailto:jjolone1@gmail.com" variant="ghost" icon={<Icon.Mail size={11} />}>{t("contact.email")}</ContactButton>
             <ContactButton href="https://www.linkedin.com/in/alejandro-jol%C3%B3n-282649186/" variant="ghost" external icon={<Icon.LinkedIn size={11} />}>{t("contact.linkedin")}</ContactButton>
@@ -456,7 +456,7 @@ function ContactSection({ whatsappNumber, whatsappMessage }) {
 
         {/* contact details strip */}
         <FadeIn delay={500}>
-          <div style={{
+          <div className="contact-grid" style={{
             marginTop: 80, display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 1,
             background: "rgba(255,255,255,0.08)", borderRadius: 20, overflow: "hidden",
             border: "1px solid rgba(255,255,255,0.08)",

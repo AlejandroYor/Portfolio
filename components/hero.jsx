@@ -40,7 +40,7 @@ function Nav({ onContact, accent }) {
       
       <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#F5F5F2", textDecoration: "none", paddingRight: 14, borderRight: "1px solid rgba(255,255,255,0.10)" }}>
         <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 12px var(--accent)" }} />
-        <span style={{ fontWeight: 600, letterSpacing: "0.02em", fontSize: 14 }}>alejandro<span style={{ color: "rgba(245,245,242,0.5)", fontWeight: 300 }}>.dev</span></span>
+        <span className="nav-logo-text" style={{ fontWeight: 600, letterSpacing: "0.02em", fontSize: 14 }}>alejandro<span style={{ color: "rgba(245,245,242,0.5)", fontWeight: 300 }}>.dev</span></span>
       </a>
       <ul style={{ display: "flex", gap: 2, listStyle: "none", margin: 0, padding: "0 6px" }}>
         {links.map((l) =>
@@ -108,7 +108,7 @@ function GlowBlob() {
 
 function StatusChip({ children }) {
   return (
-    <div style={{
+    <div className="status-chip" style={{
       display: "inline-flex", alignItems: "center", gap: 10,
       padding: "7px 14px 7px 12px", borderRadius: 999,
       background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.10)",
@@ -127,7 +127,7 @@ function PortraitCard() {
   const { t } = useT();
   return (
     <FadeIn delay={300} y={32}>
-      <div style={{ position: "relative", width: "100%", maxWidth: 360 }}>
+      <div className="hero-portrait" style={{ position: "relative", width: "100%", maxWidth: 360, marginInline: "auto" }}>
         {/* card */}
         <div style={{
           position: "relative",
@@ -185,7 +185,7 @@ function PortraitCard() {
           }}>GT · UTC-6</div>
         </div>
         {/* floating mini cards */}
-        <div style={{
+        <div className="portrait-mini-left" style={{
           position: "absolute", left: -28, bottom: 80,
           padding: "10px 14px", borderRadius: 14,
           background: "#F5F5F2", color: "#0C0C0C",
@@ -196,7 +196,7 @@ function PortraitCard() {
         }}>
           <Icon.Wrench size={14} /> {t("hero.badge.support")}
         </div>
-        <div style={{
+        <div className="portrait-mini-right" style={{
           position: "absolute", right: -22, top: 50,
           padding: "10px 14px", borderRadius: 14,
           background: "#0C0C0C", color: "var(--accent)",
@@ -217,14 +217,14 @@ function HeroSection({ heroVariant = "split" }) {
   const { t } = useT();
   // Variants: split (default) | grid | terminal
   return (
-    <section id="top" style={{ position: "relative", minHeight: "100vh", paddingTop: 120, paddingBottom: 80, overflow: "hidden" }}>
+    <section id="top" style={{ position: "relative", minHeight: "100vh", paddingTop: 120, paddingBottom: 80, paddingLeft: 32, paddingRight: 32, overflow: "hidden" }}>
       <GridBackdrop />
       <GlowBlob />
 
-      <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
         <FadeIn delay={50}><StatusChip>{t("hero.available")}</StatusChip></FadeIn>
 
-        <div style={{
+        <div className="hero-grid" style={{
           display: "grid",
           gridTemplateColumns: heroVariant === "split" ? "minmax(0, 1fr) 360px" : "minmax(0,1fr)",
           gap: 60, alignItems: "end", marginTop: 28
@@ -252,7 +252,7 @@ function HeroSection({ heroVariant = "split" }) {
             </h1>
 
             <FadeIn delay={500}>
-              <p style={{
+              <p className="hero-tagline" style={{
                 marginTop: 32, maxWidth: 560,
                 fontFamily: "Kanit, sans-serif", fontWeight: 300,
                 fontSize: 18, lineHeight: 1.5,
@@ -272,7 +272,7 @@ function HeroSection({ heroVariant = "split" }) {
 
             {/* meta strip */}
             <FadeIn delay={800}>
-              <div style={{
+              <div className="hero-meta" style={{
                 marginTop: 70, display: "flex", flexWrap: "wrap", gap: "28px 56px",
                 paddingTop: 22, borderTop: "1px solid rgba(255,255,255,0.08)",
                 fontFamily: "Kanit, sans-serif"

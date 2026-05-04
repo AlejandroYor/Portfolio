@@ -5,9 +5,9 @@ function AboutSection() {
   return (
     <section id="about" style={{ position: "relative", padding: "140px 32px 120px", background: "#0C0C0C" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 360px) minmax(0, 1fr)", gap: 80, alignItems: "start" }}>
+        <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 360px) minmax(0, 1fr)", gap: 80, alignItems: "start" }}>
           <FadeIn>
-            <div style={{ position: "sticky", top: 100 }}>
+            <div className="about-sticky" style={{ position: "sticky", top: 100 }}>
               <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.22em", color: "var(--accent)", marginBottom: 18 }}>
                 {t("about.tag")}
               </div>
@@ -63,18 +63,18 @@ function AboutSection() {
                   { role: t("exp.role3"), company: "Atento", date: t("exp.date3"), note: t("exp.note3") },
                   { role: t("exp.role4"), company: "Grupo Econsa", date: t("exp.date4"), note: t("exp.note4") },
                 ].map((e, i) => (
-                  <div key={i} style={{
+                  <div key={i} className="about-experience-row" style={{
                     display: "grid", gridTemplateColumns: "120px minmax(0,1fr) auto",
                     gap: 24, padding: "22px 0",
                     borderBottom: "1px solid rgba(255,255,255,0.06)",
                     alignItems: "baseline",
                   }}>
-                    <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, color: "rgba(245,245,242,0.4)", letterSpacing: "0.1em" }}>{e.date}</span>
-                    <div>
+                    <span className="exp-date" style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, color: "rgba(245,245,242,0.4)", letterSpacing: "0.1em" }}>{e.date}</span>
+                    <div className="exp-body">
                       <div style={{ fontFamily: "Kanit, sans-serif", fontWeight: 500, fontSize: 18, color: "#F5F5F2" }}>{e.role}</div>
                       <div style={{ fontFamily: "Kanit, sans-serif", fontWeight: 300, fontSize: 13.5, color: "rgba(245,245,242,0.55)", marginTop: 4 }}>{e.note}</div>
                     </div>
-                    <span style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, color: "var(--accent)" }}>{e.company}</span>
+                    <span className="exp-company" style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, color: "var(--accent)" }}>{e.company}</span>
                   </div>
                 ))}
               </div>
@@ -105,6 +105,7 @@ function SkillCard({ data, i }) {
   return (
     <FadeIn delay={i * 120}>
       <div
+        className="skill-card"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
@@ -227,7 +228,7 @@ function SkillsSection() {
     <section id="skills" style={{ position: "relative", padding: "140px 32px 140px", background: "#F5F2EA", color: "#0C0C0C" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         {/* header */}
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", gap: 40, alignItems: "end", marginBottom: 64 }}>
+        <div className="skills-header" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", gap: 40, alignItems: "end", marginBottom: 64 }}>
           <FadeIn>
             <div>
               <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.22em", color: "rgba(12,12,12,0.55)", marginBottom: 18 }}>
@@ -253,7 +254,7 @@ function SkillsSection() {
         </div>
 
         {/* cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 20 }}>
+        <div className="skills-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 20 }}>
           {SKILL_DATA.map((d, i) => (<SkillCard key={d.code} data={d} i={i} />))}
         </div>
 
