@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alejandro Jolón — Technical Support Engineer & Web Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /*EDITMODE-BEGIN*/
+    --tweaks-default-marker: 1;
+    /*EDITMODE-END*/
+    --bg: #0C0C0C;
+    --fg: #F5F5F2;
+    --accent: oklch(0.88 0.20 130);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: "Kanit", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: #0C0C0C; }
+
+  a { color: inherit; }
+
+  /* keyframes */
+  @keyframes pulse {
+    0% { transform: scale(0.7); opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-40px, 30px) scale(1.05); }
+  }
+  @keyframes blobFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, -20px) scale(0.95); }
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes tickerL {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); }
+  }
+  @keyframes tickerR {
+    0% { transform: translateX(-33.33%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* responsive nav */
+  @media (max-width: 720px) {
+    nav ul { display: none !important; }
+  }
+  @media (max-width: 960px) {
+    .hero-heading { font-size: clamp(56px, 16vw, 100px) !important; }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="components/i18n.jsx"></script>
+  <script type="text/babel" src="components/primitives.jsx"></script>
+  <script type="text/babel" src="components/hero.jsx"></script>
+  <script type="text/babel" src="components/about-skills.jsx"></script>
+  <script type="text/babel" src="components/projects-contact.jsx"></script>
+
+  <script type="text/babel" data-presets="env,react">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "accentColor": "lime",
+      "showPortrait": true,
+      "italicAccent": true
+    }/*EDITMODE-END*/;
+
+    const ACCENT_PRESETS = {
+      lime:   "oklch(0.88 0.20 130)",
+      cyan:   "oklch(0.82 0.16 210)",
+      amber:  "oklch(0.82 0.16 70)",
+      coral:  "oklch(0.74 0.18 30)",
+      mono:   "#F5F5F2",
+    };
+
+    function App() {
+      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      React.useEffect(() => {
+        const c = ACCENT_PRESETS[tweaks.accentColor] || ACCENT_PRESETS.lime;
+        document.documentElement.style.setProperty("--accent", c);
+      }, [tweaks.accentColor]);
+
+      return (
+        <LangProvider>
+        <div>
+          <Nav />
+          <HeroSection heroVariant={tweaks.showPortrait ? "split" : "grid"} />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <ContactSection
+            whatsappNumber="50254231394"
+            whatsappMessage="Hi Alex! I came across your portfolio and I'd love to chat."
+          />
+          <Footer />
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection title="Accent">
+              <TweakRadio
+                label="Color"
+                value={tweaks.accentColor}
+                onChange={(v) => setTweak("accentColor", v)}
+                options={[
+                  { value: "lime",  label: "Lime" },
+                  { value: "cyan",  label: "Cyan" },
+                  { value: "amber", label: "Amber" },
+                  { value: "coral", label: "Coral" },
+                  { value: "mono",  label: "Mono" },
+                ]}
+              />
+            </TweakSection>
+            <TweakSection title="Hero">
+              <TweakToggle
+                label="Show portrait card"
+                value={tweaks.showPortrait}
+                onChange={(v) => setTweak("showPortrait", v)}
+              />
+            </TweakSection>
+          </TweaksPanel>
+        </div>
+        </LangProvider>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
