@@ -90,12 +90,12 @@ const SKILL_DATA = [
   { labelKey: "skills.cat1", code: "01", icon: "Wrench",
     itemKeys: ["skills.cat1.i1","skills.cat1.i2","skills.cat1.i3","skills.cat1.i4"],
     tags: ["B2B", "Enterprise", "SLA"] },
-  { labelKey: "skills.cat2", code: "02", icon: "Code",
+  { labelKey: "skills.cat2", code: "02", icon: "Bug",
     itemKeys: ["skills.cat2.i1","skills.cat2.i2","skills.cat2.i3","skills.cat2.i4"],
-    tags: ["Frontend", "UI", "Responsive"] },
-  { labelKey: "skills.cat3", code: "03", icon: "Terminal",
+    tags: ["SQL", "Python", "ETL"] },
+  { labelKey: "skills.cat3", code: "03", icon: "Code",
     itemKeys: ["skills.cat3.i1","skills.cat3.i2","skills.cat3.i3","skills.cat3.i4"],
-    tags: ["GraphQL", "SQL", "JSON"] },
+    tags: ["React", "Node.js", "APIs"] },
 ];
 
 function SkillCard({ data, i }) {
@@ -262,8 +262,8 @@ function SkillsSection() {
         <FadeIn delay={400}>
           <div style={{ marginTop: 60 }}>
             <SkillsTickerRow items={[
-              "REST", "GraphQL", "OAuth", "SAML", "SCIM", "JSON", "Webhooks", "SQL",
-              "Slack API", "Jira", "Zapier", "Azure", "Postman", "DevTools", "Git",
+              "SQL", "Python", "Pandas", "ETL", "REST", "GraphQL", "OAuth", "SAML",
+              "React", "Node.js", "Tailwind", "Git", "Postman", "Azure", "Jira", "Zapier",
             ]} />
           </div>
         </FadeIn>

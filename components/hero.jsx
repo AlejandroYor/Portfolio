@@ -267,6 +267,7 @@ function HeroSection({ heroVariant = "split" }) {
               <div style={{ display: "flex", gap: 14, marginTop: 36, flexWrap: "wrap" }}>
                 <ContactButton href="#contact" variant="primary">{t("hero.cta1")}</ContactButton>
                 <ContactButton href="#projects" variant="ghost">{t("hero.cta2")}</ContactButton>
+                <ContactButton href="assets/cv-alejandro-jolon.pdf" external variant="ghost" icon={<Icon.Arrow size={11} />} style={{ borderColor: "rgba(242,235,220,0.28)" }} className="cv-download-btn">{t("hero.cta3")}</ContactButton>
               </div>
             </FadeIn>
 

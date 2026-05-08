@@ -207,6 +207,11 @@
     .contact-grid > div { padding: 20px 18px !important; }
     .contact-buttons { gap: 10px !important; margin-top: 32px !important; }
 
+    .cv-card { grid-template-columns: minmax(0,1fr) !important; }
+    .cv-card > div { padding: 32px 24px !important; }
+    section#cv { padding: 96px 20px !important; }
+    .cv-header { flex-direction: column !important; align-items: flex-start !important; }
+
     footer > div {
       flex-direction: column;
       gap: 12px !important;
@@ -258,6 +263,7 @@
   <script type="text/babel" src="components/primitives.jsx"></script>
   <script type="text/babel" src="components/hero.jsx"></script>
   <script type="text/babel" src="components/about-skills.jsx"></script>
+  <script type="text/babel" src="components/cv-section.jsx"></script>
   <script type="text/babel" src="components/projects-contact.jsx"></script>
 
   <script type="text/babel" data-presets="env,react">
@@ -290,6 +296,7 @@
           <HeroSection heroVariant={tweaks.showPortrait ? "split" : "grid"} />
           <AboutSection />
           <SkillsSection />
+          <CVSection />
           <ProjectsSection />
           <ContactSection
             whatsappNumber="50254231394"
