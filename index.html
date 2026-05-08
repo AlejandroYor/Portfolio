@@ -14,9 +14,17 @@
     /*EDITMODE-BEGIN*/
     --tweaks-default-marker: 1;
     /*EDITMODE-END*/
-    --bg: #0C0C0C;
-    --fg: #F5F5F2;
-    --accent: oklch(0.88 0.20 130);
+    --bg: #14110D;            /* warm near-black, brown-tinted */
+    --bg-2: #1C1813;          /* one step lighter, espresso */
+    --bg-3: #221C16;          /* card surface */
+    --fg: #F2EBDC;            /* warm cream */
+    --fg-muted: #C9BFA8;      /* warm muted */
+    --accent: oklch(0.62 0.10 150);   /* dark natural green */
+    --accent-2: oklch(0.45 0.06 145); /* deeper forest */
+    --brown: #8C6E4F;         /* warm walnut */
+    --brown-deep: #5C4530;    /* dark coffee */
+    --cream: #EFE4CC;         /* light warm bg */
+    --cream-2: #E6D9BC;       /* slightly darker cream */
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
@@ -26,14 +34,52 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
-  ::selection { background: var(--accent); color: #0C0C0C; }
+  ::selection { background: var(--accent); color: var(--fg); }
 
   a { color: inherit; }
+  html { scroll-behavior: smooth; }
+
+  /* gentle global transitions on interactive elements */
+  a, button, .cb, .skill-card, .project-card, .contact-grid > div, nav, nav a {
+    transition-property: color, background, background-color, border-color, transform, box-shadow, opacity, filter;
+    transition-duration: 380ms;
+    transition-timing-function: cubic-bezier(.2,.7,.2,1);
+  }
+
+  /* link underline reveal */
+  nav ul a { position: relative; }
+  nav ul a::after {
+    content: "";
+    position: absolute; left: 14px; right: 14px; bottom: 6px;
+    height: 1px; background: var(--accent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 420ms cubic-bezier(.2,.7,.2,1);
+  }
+  nav ul a:hover::after { transform: scaleX(1); }
+
+  /* skill-card lift uses CSS now; JSX hover stays for color swap */
+  .skill-card:hover { box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+
+  /* project card subtle lift */
+  .project-card { transition: box-shadow 480ms cubic-bezier(.2,.7,.2,1); }
+  .project-card:hover { box-shadow: 0 40px 100px rgba(0,0,0,0.4); }
 
   /* keyframes */
   @keyframes pulse {
     0% { transform: scale(0.7); opacity: 0.6; }
     100% { transform: scale(1.6); opacity: 0; }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(6px, -4px); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+    50% { filter: drop-shadow(0 0 14px color-mix(in oklch, var(--accent) 50%, transparent)); }
   }
   @keyframes blobFloat {
     0%, 100% { transform: translate(0, 0) scale(1); }
@@ -176,7 +222,8 @@
     .hero-portrait .portrait-mini-left,
     .hero-portrait .portrait-mini-right { display: none !important; }
 
-    nav .lang-switch { display: none !important; }
+    /* keep lang switch visible — make it slightly more compact */
+    nav .lang-switch button { padding: 6px 9px !important; font-size: 10px !important; min-height: 28px; min-width: 36px; }
 
     .skill-card h3 { font-size: 24px !important; }
 
@@ -184,6 +231,15 @@
     .project-art-wrap { transform: scale(0.6); margin: -60px auto -60px; }
 
     .cb { padding: 12px 18px !important; font-size: 14px !important; }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 </head>
@@ -203,24 +259,24 @@
 
   <script type="text/babel" data-presets="env,react">
     const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-      "accentColor": "lime",
+      "accentColor": "forest",
       "showPortrait": true,
       "italicAccent": true
     }/*EDITMODE-END*/;
 
     const ACCENT_PRESETS = {
-      lime:   "oklch(0.88 0.20 130)",
-      cyan:   "oklch(0.82 0.16 210)",
-      amber:  "oklch(0.82 0.16 70)",
-      coral:  "oklch(0.74 0.18 30)",
-      mono:   "#F5F5F2",
+      forest: "oklch(0.62 0.10 150)",  /* warm dark green */
+      moss:   "oklch(0.55 0.08 135)",
+      olive:  "oklch(0.66 0.11 110)",
+      walnut: "oklch(0.58 0.09 60)",
+      cream:  "#EFE4CC",
     };
 
     function App() {
       const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
 
       React.useEffect(() => {
-        const c = ACCENT_PRESETS[tweaks.accentColor] || ACCENT_PRESETS.lime;
+        const c = ACCENT_PRESETS[tweaks.accentColor] || ACCENT_PRESETS.forest;
         document.documentElement.style.setProperty("--accent", c);
       }, [tweaks.accentColor]);
 
@@ -245,11 +301,11 @@
                 value={tweaks.accentColor}
                 onChange={(v) => setTweak("accentColor", v)}
                 options={[
-                  { value: "lime",  label: "Lime" },
-                  { value: "cyan",  label: "Cyan" },
-                  { value: "amber", label: "Amber" },
-                  { value: "coral", label: "Coral" },
-                  { value: "mono",  label: "Mono" },
+                  { value: "forest", label: "Forest" },
+                  { value: "moss",   label: "Moss" },
+                  { value: "olive",  label: "Olive" },
+                  { value: "walnut", label: "Walnut" },
+                  { value: "cream",  label: "Cream" },
                 ]}
               />
             </TweakSection>

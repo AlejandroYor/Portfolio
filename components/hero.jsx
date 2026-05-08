@@ -12,11 +12,11 @@ function Nav({ onContact, accent }) {
   }, []);
 
   const links = [
-    { id: "about", label: t("nav.about") },
-    { id: "skills", label: t("nav.skills") },
-    { id: "projects", label: t("nav.projects") },
-    { id: "contact", label: t("nav.contact") },
-  ];
+  { id: "about", label: t("nav.about") },
+  { id: "skills", label: t("nav.skills") },
+  { id: "projects", label: t("nav.projects") },
+  { id: "contact", label: t("nav.contact") }];
+
   return (
     <nav
       style={{
@@ -38,9 +38,9 @@ function Nav({ onContact, accent }) {
         fontFamily: "Kanit, sans-serif"
       }}>
       
-      <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#F5F5F2", textDecoration: "none", paddingRight: 14, borderRight: "1px solid rgba(255,255,255,0.10)" }}>
+      <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--fg)", textDecoration: "none", paddingRight: 14, borderRight: "1px solid rgba(255,255,255,0.10)" }}>
         <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 12px var(--accent)" }} />
-        <span className="nav-logo-text" style={{ fontWeight: 600, letterSpacing: "0.02em", fontSize: 14 }}>alejandro<span style={{ color: "rgba(245,245,242,0.5)", fontWeight: 300 }}>.dev</span></span>
+        <span className="nav-logo-text" style={{ fontWeight: 600, letterSpacing: "0.02em", fontSize: 14 }}>alejandro<span style={{ color: "rgba(242,235,220,0.5)", fontWeight: 300 }}>.dev</span></span>
       </a>
       <ul style={{ display: "flex", gap: 2, listStyle: "none", margin: 0, padding: "0 6px" }}>
         {links.map((l) =>
@@ -50,15 +50,15 @@ function Nav({ onContact, accent }) {
             style={{
               display: "inline-block",
               padding: "8px 14px",
-              color: "rgba(245,245,242,0.78)",
+              color: "rgba(242,235,220,0.78)",
               textDecoration: "none",
               fontSize: 13.5,
               fontWeight: 400,
               borderRadius: 999,
               transition: "color 200ms ease, background 200ms ease"
             }}
-            onMouseEnter={(e) => {e.currentTarget.style.color = "#F5F5F2";e.currentTarget.style.background = "rgba(255,255,255,0.06)";}}
-            onMouseLeave={(e) => {e.currentTarget.style.color = "rgba(245,245,242,0.78)";e.currentTarget.style.background = "transparent";}}>
+            onMouseEnter={(e) => {e.currentTarget.style.color = "var(--fg)";e.currentTarget.style.background = "rgba(255,255,255,0.06)";}}
+            onMouseLeave={(e) => {e.currentTarget.style.color = "rgba(242,235,220,0.78)";e.currentTarget.style.background = "transparent";}}>
             
               {l.label}
             </a>
@@ -112,7 +112,7 @@ function StatusChip({ children }) {
       display: "inline-flex", alignItems: "center", gap: 10,
       padding: "7px 14px 7px 12px", borderRadius: 999,
       background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.10)",
-      color: "rgba(245,245,242,0.85)", fontSize: 12.5, fontFamily: "Kanit, sans-serif", fontWeight: 400, letterSpacing: "0.02em"
+      color: "rgba(242,235,220,0.85)", fontSize: 12.5, fontFamily: "Kanit, sans-serif", fontWeight: 400, letterSpacing: "0.02em"
     }}>
       <span style={{ position: "relative", width: 8, height: 8 }}>
         <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "var(--accent)" }} />
@@ -174,21 +174,21 @@ function PortraitCard() {
             border: "1px solid rgba(255,255,255,0.10)"
           }}>
             <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 10, color: "var(--accent)", letterSpacing: "0.18em" }}>ID_0042</span>
-            <span style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, color: "#F5F5F2", fontWeight: 500 }}>Alejandro Jolón</span>
+            <span style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, color: "var(--fg)", fontWeight: 500 }}>Alejandro Jolón</span>
           </div>
           <div style={{
             position: "absolute", right: 16, top: 16,
             padding: "6px 10px", borderRadius: 999,
             background: "rgba(12,12,12,0.72)", backdropFilter: "blur(8px)",
             border: "1px solid rgba(255,255,255,0.10)",
-            fontFamily: "JetBrains Mono, monospace", fontSize: 10, color: "rgba(245,245,242,0.8)", letterSpacing: "0.12em"
+            fontFamily: "JetBrains Mono, monospace", fontSize: 10, color: "rgba(242,235,220,0.8)", letterSpacing: "0.12em"
           }}>GT · UTC-6</div>
         </div>
         {/* floating mini cards */}
         <div className="portrait-mini-left" style={{
           position: "absolute", left: -28, bottom: 80,
           padding: "10px 14px", borderRadius: 14,
-          background: "#F5F5F2", color: "#0C0C0C",
+          background: "var(--fg)", color: "var(--bg)",
           fontFamily: "Kanit, sans-serif", fontSize: 12.5, fontWeight: 500,
           boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
           display: "flex", alignItems: "center", gap: 8,
@@ -199,7 +199,7 @@ function PortraitCard() {
         <div className="portrait-mini-right" style={{
           position: "absolute", right: -22, top: 50,
           padding: "10px 14px", borderRadius: 14,
-          background: "#0C0C0C", color: "var(--accent)",
+          background: "var(--bg)", color: "var(--accent)",
           border: "1px solid rgba(255,255,255,0.12)",
           fontFamily: "JetBrains Mono, monospace", fontSize: 11, fontWeight: 500,
           boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
@@ -237,14 +237,14 @@ function HeroSection({ heroVariant = "split" }) {
               lineHeight: 0.92,
               letterSpacing: "-0.04em",
               margin: 0,
-              color: "#F5F5F2",
+              color: "var(--fg)",
               textTransform: "lowercase"
             }}>
               <FadeIn as="span" delay={100} y={40}><span>{t("hero.hi")}</span></FadeIn>
-              <FadeIn as="span" delay={200} y={40}><span style={{ fontStyle: "italic", fontWeight: 200, color: "rgba(245,245,242,0.55)" }}>{t("hero.im")}</span></FadeIn>
+              <FadeIn as="span" delay={200} y={40}><span style={{ fontStyle: "italic", fontWeight: 200, color: "rgba(242,235,220,0.55)" }}>{t("hero.im")}</span></FadeIn>
               <FadeIn as="span" delay={300} y={40}>
                 <span style={{ position: "relative", display: "inline-block", fontWeight: 600 }}>
-                  alex
+                  alejandro
                   <span style={{ position: "absolute", left: 0, right: 0, bottom: "0.06em", height: "0.08em", background: "var(--accent)", borderRadius: 2 }} />
                 </span>
               </FadeIn>
@@ -256,10 +256,10 @@ function HeroSection({ heroVariant = "split" }) {
                 marginTop: 32, maxWidth: 560,
                 fontFamily: "Kanit, sans-serif", fontWeight: 300,
                 fontSize: 18, lineHeight: 1.5,
-                color: "rgba(245,245,242,0.72)",
+                color: "rgba(242,235,220,0.72)",
                 textTransform: "lowercase"
               }}>
-                {t("hero.tagline")} <span style={{ color: "#F5F5F2", fontWeight: 400 }}>{t("hero.taglineBold")}</span> {t("hero.taglineEnd")}
+                {t("hero.tagline")} <span style={{ color: "var(--fg)", fontWeight: 400 }}>{t("hero.taglineBold")}</span> {t("hero.taglineEnd")}
               </p>
             </FadeIn>
 
@@ -284,9 +284,9 @@ function HeroSection({ heroVariant = "split" }) {
                 { k: t("hero.meta.stack"), v: t("hero.meta.stackV"), sub: t("hero.meta.stackSub") }].
                 map((m) =>
                 <div key={m.k} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                    <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.18em", color: "rgba(245,245,242,0.45)", textTransform: "uppercase" }}>{m.k}</span>
-                    <span style={{ fontSize: 17, color: "#F5F5F2", fontWeight: 400 }}>{m.v}</span>
-                    <span style={{ fontSize: 12, color: "rgba(245,245,242,0.5)" }}>{m.sub}</span>
+                    <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.18em", color: "rgba(242,235,220,0.45)", textTransform: "uppercase" }}>{m.k}</span>
+                    <span style={{ fontSize: 17, color: "var(--fg)", fontWeight: 400 }}>{m.v}</span>
+                    <span style={{ fontSize: 12, color: "rgba(242,235,220,0.5)" }}>{m.sub}</span>
                   </div>
                 )}
               </div>
@@ -302,7 +302,7 @@ function HeroSection({ heroVariant = "split" }) {
         <div style={{
           position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)",
           display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
-          fontFamily: "JetBrains Mono, monospace", fontSize: 10, color: "rgba(245,245,242,0.4)", letterSpacing: "0.18em"
+          fontFamily: "JetBrains Mono, monospace", fontSize: 10, color: "rgba(242,235,220,0.4)", letterSpacing: "0.18em"
         }}>
           SCROLL
           <span style={{ width: 1, height: 32, background: "linear-gradient(180deg, rgba(255,255,255,0.4), transparent)" }} />

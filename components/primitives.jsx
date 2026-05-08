@@ -144,24 +144,24 @@ function ContactButton({
   const base = {
     primary: {
       bg: "var(--accent)",
-      color: "#0C0C0C",
+      color: "var(--bg)",
       border: "1px solid var(--accent)",
       hoverBg: "transparent",
       hoverColor: "var(--accent)",
     },
     ghost: {
       bg: "transparent",
-      color: "#F5F5F2",
-      border: "1px solid rgba(245,245,242,0.18)",
-      hoverBg: "#F5F5F2",
-      hoverColor: "#0C0C0C",
+      color: "var(--fg)",
+      border: "1px solid rgba(242,235,220,0.18)",
+      hoverBg: "var(--fg)",
+      hoverColor: "var(--bg)",
     },
     dark: {
-      bg: "#0C0C0C",
-      color: "#F5F5F2",
+      bg: "var(--bg)",
+      color: "var(--fg)",
       border: "1px solid #0C0C0C",
       hoverBg: "transparent",
-      hoverColor: "#0C0C0C",
+      hoverColor: "var(--bg)",
     },
   }[variant];
 
@@ -202,8 +202,8 @@ function ContactButton({
             width: 22,
             height: 22,
             borderRadius: "50%",
-            background: hover ? (base.hoverColor === "var(--accent)" ? "var(--accent)" : base.hoverColor) : (base.color === "#0C0C0C" ? "#0C0C0C" : base.color),
-            color: hover ? base.hoverBg === "transparent" ? "#0C0C0C" : base.hoverBg : base.bg,
+            background: hover ? (base.hoverColor === "var(--accent)" ? "var(--accent)" : base.hoverColor) : (base.color === "var(--bg)" ? "var(--bg)" : base.color),
+            color: hover ? base.hoverBg === "transparent" ? "var(--bg)" : base.hoverBg : base.bg,
             transition: "all 280ms ease",
             transform: hover ? "rotate(-45deg)" : "rotate(0deg)",
           }}

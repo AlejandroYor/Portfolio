@@ -3,7 +3,7 @@
 function AboutSection() {
   const { t } = useT();
   return (
-    <section id="about" style={{ position: "relative", padding: "140px 32px 120px", background: "#0C0C0C" }}>
+    <section id="about" style={{ position: "relative", padding: "140px 32px 120px", background: "var(--bg)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 360px) minmax(0, 1fr)", gap: 80, alignItems: "start" }}>
           <FadeIn>
@@ -14,9 +14,9 @@ function AboutSection() {
               <h2 style={{
                 fontFamily: "Kanit, sans-serif", fontWeight: 300,
                 fontSize: "clamp(48px, 6vw, 96px)", lineHeight: 0.95,
-                letterSpacing: "-0.03em", margin: 0, color: "#F5F5F2", textTransform: "lowercase",
+                letterSpacing: "-0.03em", margin: 0, color: "var(--fg)", textTransform: "lowercase",
               }}>
-                {t("about.title")}<span style={{ fontStyle: "italic", fontWeight: 200, color: "rgba(245,245,242,0.5)" }}>{t("about.titleItalic")}</span>
+                {t("about.title")}<span style={{ fontStyle: "italic", fontWeight: 200, color: "rgba(242,235,220,0.5)" }}>{t("about.titleItalic")}</span>
               </h2>
             </div>
           </FadeIn>
@@ -26,7 +26,7 @@ function AboutSection() {
               <p style={{
                 fontFamily: "Kanit, sans-serif", fontWeight: 300,
                 fontSize: "clamp(22px, 2.4vw, 30px)", lineHeight: 1.4,
-                color: "#F5F5F2", margin: 0, textWrap: "pretty",
+                color: "var(--fg)", margin: 0, textWrap: "pretty",
               }}>
                 {t("about.p1a")}<span style={{ color: "var(--accent)" }}>{t("about.p1b")}</span>{t("about.p1c")}
               </p>
@@ -37,7 +37,7 @@ function AboutSection() {
                 marginTop: 28,
                 fontFamily: "Kanit, sans-serif", fontWeight: 300,
                 fontSize: 18, lineHeight: 1.65,
-                color: "rgba(245,245,242,0.65)",
+                color: "rgba(242,235,220,0.65)",
               }}>
                 {t("about.p2")}
               </p>
@@ -48,7 +48,7 @@ function AboutSection() {
                 marginTop: 20,
                 fontFamily: "Kanit, sans-serif", fontWeight: 300,
                 fontSize: 18, lineHeight: 1.65,
-                color: "rgba(245,245,242,0.65)",
+                color: "rgba(242,235,220,0.65)",
               }}>
                 {t("about.p3")}
               </p>
@@ -69,10 +69,10 @@ function AboutSection() {
                     borderBottom: "1px solid rgba(255,255,255,0.06)",
                     alignItems: "baseline",
                   }}>
-                    <span className="exp-date" style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, color: "rgba(245,245,242,0.4)", letterSpacing: "0.1em" }}>{e.date}</span>
+                    <span className="exp-date" style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, color: "rgba(242,235,220,0.4)", letterSpacing: "0.1em" }}>{e.date}</span>
                     <div className="exp-body">
-                      <div style={{ fontFamily: "Kanit, sans-serif", fontWeight: 500, fontSize: 18, color: "#F5F5F2" }}>{e.role}</div>
-                      <div style={{ fontFamily: "Kanit, sans-serif", fontWeight: 300, fontSize: 13.5, color: "rgba(245,245,242,0.55)", marginTop: 4 }}>{e.note}</div>
+                      <div style={{ fontFamily: "Kanit, sans-serif", fontWeight: 500, fontSize: 18, color: "var(--fg)" }}>{e.role}</div>
+                      <div style={{ fontFamily: "Kanit, sans-serif", fontWeight: 300, fontSize: 13.5, color: "rgba(242,235,220,0.55)", marginTop: 4 }}>{e.note}</div>
                     </div>
                     <span className="exp-company" style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, color: "var(--accent)" }}>{e.company}</span>
                   </div>
@@ -111,8 +111,8 @@ function SkillCard({ data, i }) {
         style={{
           position: "relative",
           padding: "32px 28px 28px",
-          background: hover ? "#0C0C0C" : "#FAFAF7",
-          color: hover ? "#F5F5F2" : "#0C0C0C",
+          background: hover ? "var(--bg)" : "var(--cream-2)",
+          color: hover ? "var(--fg)" : "var(--bg)",
           borderRadius: 24,
           border: "1px solid #E8E6DF",
           transition: "background 380ms ease, color 380ms ease, transform 380ms ease",
@@ -132,8 +132,8 @@ function SkillCard({ data, i }) {
           <span style={{
             display: "inline-flex", alignItems: "center", justifyContent: "center",
             width: 44, height: 44, borderRadius: 14,
-            background: hover ? "var(--accent)" : "#0C0C0C",
-            color: hover ? "#0C0C0C" : "#F5F5F2",
+            background: hover ? "var(--accent)" : "var(--bg)",
+            color: hover ? "var(--bg)" : "var(--fg)",
             transition: "background 300ms ease, color 300ms ease, transform 300ms ease",
             transform: hover ? "rotate(-8deg)" : "rotate(0)",
           }}>
@@ -160,12 +160,12 @@ function SkillCard({ data, i }) {
             <li key={idx} style={{
               display: "flex", alignItems: "center", gap: 12,
               fontFamily: "Kanit, sans-serif", fontWeight: 300, fontSize: 15.5,
-              color: hover ? "rgba(245,245,242,0.85)" : "rgba(12,12,12,0.78)",
+              color: hover ? "rgba(242,235,220,0.85)" : "rgba(12,12,12,0.78)",
               transition: "color 300ms ease",
             }}>
               <span style={{
                 width: 5, height: 5, borderRadius: "50%",
-                background: hover ? "var(--accent)" : "#0C0C0C",
+                background: hover ? "var(--accent)" : "var(--bg)",
                 transition: "background 300ms ease",
                 flexShrink: 0,
               }} />
@@ -185,7 +185,7 @@ function SkillCard({ data, i }) {
               padding: "5px 10px", borderRadius: 999,
               fontFamily: "JetBrains Mono, monospace", fontSize: 10, letterSpacing: "0.1em",
               background: hover ? "rgba(255,255,255,0.06)" : "rgba(12,12,12,0.05)",
-              color: hover ? "rgba(245,245,242,0.7)" : "rgba(12,12,12,0.6)",
+              color: hover ? "rgba(242,235,220,0.7)" : "rgba(12,12,12,0.6)",
               transition: "all 300ms ease",
             }}>{t.toLowerCase()}</span>
           ))}
@@ -210,8 +210,8 @@ function SkillsTickerRow({ items, reverse = false }) {
           <span key={i} style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             padding: "10px 18px", borderRadius: 999,
-            background: "#FAFAF7", border: "1px solid #E8E6DF",
-            fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 400, color: "#0C0C0C",
+            background: "var(--cream-2)", border: "1px solid #E8E6DF",
+            fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 400, color: "var(--bg)",
           }}>
             <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--accent)" }} />
             {it}
@@ -225,7 +225,7 @@ function SkillsTickerRow({ items, reverse = false }) {
 function SkillsSection() {
   const { t } = useT();
   return (
-    <section id="skills" style={{ position: "relative", padding: "140px 32px 140px", background: "#F5F2EA", color: "#0C0C0C" }}>
+    <section id="skills" style={{ position: "relative", padding: "140px 32px 140px", background: "var(--cream)", color: "var(--bg)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         {/* header */}
         <div className="skills-header" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", gap: 40, alignItems: "end", marginBottom: 64 }}>
@@ -237,7 +237,7 @@ function SkillsSection() {
               <h2 style={{
                 fontFamily: "Kanit, sans-serif", fontWeight: 300,
                 fontSize: "clamp(56px, 9vw, 140px)", lineHeight: 0.92,
-                letterSpacing: "-0.04em", margin: 0, color: "#0C0C0C", textTransform: "lowercase",
+                letterSpacing: "-0.04em", margin: 0, color: "var(--bg)", textTransform: "lowercase",
               }}>
                 {t("skills.title")}<span style={{ fontStyle: "italic", fontWeight: 200, color: "rgba(12,12,12,0.45)" }}>{t("skills.titleItalic")}</span>
               </h2>

@@ -32,7 +32,7 @@ const TRANSLATIONS = {
     "hero.meta.stack": "stack",
     "hero.meta.stackV": "react · ts · apis",
     "hero.meta.stackSub": "rest · graphql · sql",
-    "hero.badge.support": "tier 2 support",
+    "hero.badge.support": "TSE",
     // about
     "about.tag": "/ 01 — ABOUT",
     "about.title": "about ",
@@ -142,7 +142,7 @@ const TRANSLATIONS = {
     "hero.meta.stack": "stack",
     "hero.meta.stackV": "react · ts · apis",
     "hero.meta.stackSub": "rest · graphql · sql",
-    "hero.badge.support": "soporte tier 2",
+    "hero.badge.support": "TSE",
 
     "about.tag": "/ 01 — SOBRE MÍ",
     "about.title": "sobre ",
@@ -266,7 +266,7 @@ function LangSwitch() {
               padding: "5px 10px", borderRadius: 999,
               fontFamily: "JetBrains Mono, monospace", fontSize: 10, fontWeight: 600, letterSpacing: "0.12em",
               background: active ? "var(--accent)" : "transparent",
-              color: active ? "#0C0C0C" : "rgba(245,245,242,0.6)",
+              color: active ? "var(--bg)" : "rgba(242,235,220,0.6)",
               transition: "all 200ms ease",
               textTransform: "uppercase",
             }}
