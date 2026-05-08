@@ -189,11 +189,13 @@ function ContactButton({
           background: hover ? base.hoverBg : base.bg,
           color: hover ? base.hoverColor : base.color,
           border: base.border,
+          whiteSpace: "nowrap",
+          flexShrink: 0,
           transition: "background 280ms ease, color 280ms ease, transform 200ms ease",
           ...style,
         }}
       >
-        <span>{children}</span>
+        <span style={{ whiteSpace: "nowrap" }}>{children}</span>
         <span
           style={{
             display: "inline-flex",

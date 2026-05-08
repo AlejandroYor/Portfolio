@@ -64,6 +64,9 @@
   .project-card { transition: box-shadow 480ms cubic-bezier(.2,.7,.2,1); }
   .project-card:hover { box-shadow: 0 40px 100px rgba(0,0,0,0.4); }
 
+  /* ContactButton: never wrap, never shrink */
+  .cb { white-space: nowrap !important; flex-shrink: 0 !important; }
+
   /* keyframes */
   @keyframes pulse {
     0% { transform: scale(0.7); opacity: 0.6; }
@@ -148,7 +151,7 @@
     nav ul { display: none !important; }
     nav { padding: 6px 6px 6px 16px !important; gap: 6px !important; }
     nav .nav-logo-text { font-size: 13px !important; }
-    nav .cb { padding: 8px 14px !important; font-size: 12.5px !important; }
+    nav .cb { padding: 8px 12px 8px 14px !important; font-size: 12px !important; white-space: nowrap !important; flex-shrink: 0 !important; }
 
     section { padding-left: 20px !important; padding-right: 20px !important; }
     section#top { padding-top: 96px !important; padding-bottom: 60px !important; }
