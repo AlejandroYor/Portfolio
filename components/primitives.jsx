@@ -1,3 +1,4 @@
+
 // Reusable primitives: FadeIn, Magnet, AnimatedText, ContactButton
 
 const { useState, useEffect, useRef, useMemo } = React;
@@ -135,6 +136,7 @@ function ContactButton({
   variant = "primary", // primary | ghost | dark
   icon = null,
   external = false,
+  magnetic = true,
   className = "",
   style = {},
 }) {
@@ -166,8 +168,7 @@ function ContactButton({
   }[variant];
 
   const [hover, setHover] = useState(false);
-  return (
-    <Magnet strength={0.25} radius={140}>
+  const btn = (
       <Tag
         {...props}
         onMouseEnter={() => setHover(true)}
@@ -217,8 +218,8 @@ function ContactButton({
           )}
         </span>
       </Tag>
-    </Magnet>
   );
+  return magnetic ? <Magnet strength={0.25} radius={140}>{btn}</Magnet> : btn;
 }
 
 // Tiny inline SVG icons (lucide-inspired, original)

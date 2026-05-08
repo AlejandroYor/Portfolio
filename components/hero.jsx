@@ -66,7 +66,7 @@ function Nav({ onContact, accent }) {
         )}
       </ul>
       <LangSwitch />
-      <ContactButton href="#contact" variant="primary" style={{ padding: "9px 16px 9px 18px", fontSize: 13, whiteSpace: "nowrap", flexShrink: 0 }}>{t("nav.contactBtn")}</ContactButton>
+      <ContactButton href="#contact" variant="primary" magnetic={false} style={{ padding: "9px 16px 9px 18px", fontSize: 13, whiteSpace: "nowrap", flexShrink: 0 }}>{t("nav.contactBtn")}</ContactButton>
     </nav>);
 
 }
