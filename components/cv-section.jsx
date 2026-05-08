@@ -5,7 +5,7 @@ function CVSection() {
   return (
     <section id="cv" style={{
       position: "relative",
-      padding: "120px 32px 120px",
+      padding: "80px 32px 80px",
       background: "var(--cream, #EFE4CC)",
       color: "var(--bg, #14110D)",
       overflow: "hidden",
@@ -22,41 +22,6 @@ function CVSection() {
       }}>cv</div>
 
       <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
-        {/* header */}
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) auto", gap: 40, alignItems: "end", marginBottom: 56 }}>
-          <FadeIn>
-            <div>
-              <div style={{
-                fontFamily: "JetBrains Mono, monospace", fontSize: 11,
-                letterSpacing: "0.22em", color: "rgba(12,12,12,0.55)", marginBottom: 18,
-              }}>
-                {t("cv.tag")}
-              </div>
-              <h2 style={{
-                fontFamily: "Kanit, sans-serif", fontWeight: 300,
-                fontSize: "clamp(56px, 9vw, 140px)", lineHeight: 0.92,
-                letterSpacing: "-0.04em", margin: 0, color: "var(--bg, #14110D)",
-                textTransform: "lowercase",
-              }}>
-                {t("cv.title1")}<span style={{ fontStyle: "italic", fontWeight: 200, color: "rgba(12,12,12,0.45)" }}>{t("cv.titleItalic")}</span>{" "}<span style={{ fontWeight: 600 }}>{t("cv.title2")}</span>
-              </h2>
-            </div>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              padding: "8px 16px", borderRadius: 999,
-              background: "var(--accent)",
-              color: "var(--cream, #EFE4CC)",
-              fontFamily: "JetBrains Mono, monospace", fontSize: 11,
-              fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
-            }}>
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "currentColor", opacity: 0.8 }} />
-              {t("cv.available")}
-            </div>
-          </FadeIn>
-        </div>
-
         {/* main card */}
         <FadeIn delay={150}>
           <div style={{
