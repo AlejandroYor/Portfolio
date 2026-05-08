@@ -205,8 +205,12 @@ function ContactButton({
             width: 22,
             height: 22,
             borderRadius: "50%",
-            background: hover ? (base.hoverColor === "var(--accent)" ? "var(--accent)" : base.hoverColor) : (base.color === "var(--bg)" ? "var(--bg)" : base.color),
-            color: hover ? base.hoverBg === "transparent" ? "var(--bg)" : base.hoverBg : base.bg,
+            background: hover
+              ? (base.hoverColor === "var(--accent)" ? "var(--accent)" : base.hoverColor)
+              : (base.bg === "transparent" ? "rgba(242,235,220,0.14)" : (base.color === "var(--bg)" ? "var(--bg)" : base.color)),
+            color: hover
+              ? (base.hoverBg === "transparent" ? "var(--bg)" : base.hoverBg)
+              : (base.bg === "transparent" ? "var(--fg)" : base.bg),
             transition: "all 280ms ease",
             transform: hover ? "rotate(-45deg)" : "rotate(0deg)",
           }}

@@ -92,10 +92,10 @@ const SKILL_DATA = [
     tags: ["B2B", "Enterprise", "SLA"] },
   { labelKey: "skills.cat2", code: "02", icon: "Bug",
     itemKeys: ["skills.cat2.i1","skills.cat2.i2","skills.cat2.i3","skills.cat2.i4"],
-    tags: ["SQL", "Python", "ETL"] },
+    tags: ["MySQL", "PostgreSQL", "Oracle"] },
   { labelKey: "skills.cat3", code: "03", icon: "Code",
     itemKeys: ["skills.cat3.i1","skills.cat3.i2","skills.cat3.i3","skills.cat3.i4"],
-    tags: ["React", "Node.js", "APIs"] },
+    tags: ["Python", "Java", "React"] },
 ];
 
 function SkillCard({ data, i }) {
@@ -262,8 +262,8 @@ function SkillsSection() {
         <FadeIn delay={400}>
           <div style={{ marginTop: 60 }}>
             <SkillsTickerRow items={[
-              "SQL", "Python", "Pandas", "ETL", "REST", "GraphQL", "OAuth", "SAML",
-              "React", "Node.js", "Tailwind", "Git", "Postman", "Azure", "Jira", "Zapier",
+              "MySQL", "PostgreSQL", "Oracle", "SQL Server", "GraphQL", "Python", "Java", "C#",
+              "TypeScript", "Node.js", "React", "REST", "OAuth", "SAML", "ETL", "Tailwind", "Git", "Postman", "Azure",
             ]} />
           </div>
         </FadeIn>

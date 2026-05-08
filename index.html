@@ -212,6 +212,9 @@
     section#cv { padding: 96px 20px !important; }
     .cv-header { flex-direction: column !important; align-items: flex-start !important; }
 
+    .certs-grid { grid-template-columns: minmax(0,1fr) !important; }
+    section#certs { padding: 80px 20px !important; }
+
     footer > div {
       flex-direction: column;
       gap: 12px !important;
@@ -263,6 +266,7 @@
   <script type="text/babel" src="components/primitives.jsx"></script>
   <script type="text/babel" src="components/hero.jsx"></script>
   <script type="text/babel" src="components/about-skills.jsx"></script>
+  <script type="text/babel" src="components/certifications.jsx"></script>
   <script type="text/babel" src="components/projects-contact.jsx"></script>
 
   <script type="text/babel" data-presets="env,react">
@@ -296,6 +300,7 @@
           <AboutSection />
           <SkillsSection />
           <ProjectsSection />
+          <CertsSection />
           <ContactSection
             whatsappNumber="50254231394"
             whatsappMessage="Hi Alex! I came across your portfolio and I'd love to chat."
