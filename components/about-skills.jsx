@@ -2,6 +2,24 @@
 
 function AboutSection() {
   const { t } = useT();
+  const companyLinks = [
+    'https://monday.com/',
+    'https://weareeverise.com/',
+    'https://www.delonghi.com/it-it',
+    'https://grupoeconsa.com/'
+  ];
+  const gradients = [
+    "linear-gradient(135deg, rgba(255, 0, 127, 0.1), rgba(124, 58, 237, 0.1))", // monday pink-purple
+    "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1))", // everise blue-teal
+    "linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.1))", // atento red-orange
+    "linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))"  // grupo econsa green
+  ];
+  const hoverGradients = [
+    "linear-gradient(135deg, rgba(255, 0, 127, 0.2), rgba(124, 58, 237, 0.2))",
+    "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2))",
+    "linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(251, 146, 60, 0.2))",
+    "linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.2))"
+  ];
   return (
     <section id="about" style={{ position: "relative", padding: "140px 32px 120px", background: "var(--bg)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -68,7 +86,33 @@ function AboutSection() {
                     gap: 24, padding: "22px 0",
                     borderBottom: "1px solid rgba(255,255,255,0.06)",
                     alignItems: "baseline",
-                  }}>
+                    ...(i < 4 ? {
+                      background: gradients[i],
+                      borderRadius: "8px",
+                      padding: "22px 16px",
+                      margin: "8px 0",
+                      transition: "all 0.3s ease",
+                      cursor: "pointer"
+                    } : {}),
+                  }}
+                  onMouseEnter={(e) => {
+                    if (i < 4) {
+                      e.currentTarget.style.background = hoverGradients[i];
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                      e.currentTarget.style.boxShadow = `0 4px 12px ${gradients[i].replace('0.1', '0.3').replace('0.2', '0.3')}`;
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (i < 4) {
+                      e.currentTarget.style.background = gradients[i];
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "none";
+                    }
+                  }}
+                  onClick={() => {
+                    if (i < 4) window.open(companyLinks[i], '_blank');
+                  }}
+                  >
                     <span className="exp-date" style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, color: "rgba(242,235,220,0.4)", letterSpacing: "0.1em" }}>{e.date}</span>
                     <div className="exp-body">
                       <div style={{ fontFamily: "Kanit, sans-serif", fontWeight: 500, fontSize: 18, color: "var(--fg)" }}>{e.role}</div>

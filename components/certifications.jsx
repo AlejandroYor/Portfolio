@@ -10,7 +10,7 @@ function CertsSection() {
       credId: "UC-c02b3924-4c80-44fc-b2ae-c5439c2aabe5",
       tags: ["Cybersecurity", "IT Security", "CompTIA"],
       link: "https://udemy-certificate.s3.amazonaws.com/image/UC-c02b3924-4c80-44fc-b2ae-c5439c2aabe5.jpg?v=1760728136000",
-      accent: true,
+      accent: false,
     },
     {
       name: "English",
@@ -40,6 +40,18 @@ function CertsSection() {
       accent: false,
     },
   ];
+
+  const issuerGradients = {
+    "Udemy": "linear-gradient(135deg, rgba(164, 53, 240, 0.1), rgba(236, 82, 82, 0.1))", // Udemy purple to red
+    "E4CC": "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1))", // Blue to teal for language
+    "INTECAP": "linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))", // Green for institute
+  };
+
+  const issuerHoverGradients = {
+    "Udemy": "linear-gradient(135deg, rgba(164, 53, 240, 0.2), rgba(236, 82, 82, 0.2))",
+    "E4CC": "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2))",
+    "INTECAP": "linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.2))",
+  };
 
   return (
     <section id="certs" style={{
@@ -88,7 +100,7 @@ function CertsSection() {
           gap: 16,
         }}>
           {certs.map((c, i) => (
-            <CertCard key={i} cert={c} i={i} t={t} />
+            <CertCard key={i} cert={c} i={i} t={t} gradient={issuerGradients[c.issuer]} hoverGradient={issuerHoverGradients[c.issuer]} />
           ))}
         </div>
       </div>
@@ -96,7 +108,7 @@ function CertsSection() {
   );
 }
 
-function CertCard({ cert, i, t }) {
+function CertCard({ cert, i, t, gradient, hoverGradient }) {
   const [hover, setHover] = React.useState(false);
   return (
     <FadeIn delay={i * 100}>
@@ -107,7 +119,7 @@ function CertCard({ cert, i, t }) {
           position: "relative",
           padding: "32px 36px",
           borderRadius: 20,
-          background: hover ? "rgba(242,235,220,0.04)" : "rgba(242,235,220,0.02)",
+          background: hover ? (hoverGradient || "rgba(242,235,220,0.04)") : (gradient || "rgba(242,235,220,0.02)"),
           border: `1px solid ${cert.accent ? "var(--accent)" : "rgba(242,235,220,0.08)"}`,
           borderTop: `2px solid ${cert.accent ? "var(--accent)" : "rgba(242,235,220,0.12)"}`,
           transition: "background 280ms ease, border-color 280ms ease",

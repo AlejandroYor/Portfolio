@@ -12,7 +12,7 @@ const PROJECTS = [
     href: "https://alejandroyor.github.io/salud-y-bienestar/", color: "var(--cream)", accent: "var(--bg)", artwork: "browser" },
   { n: "04", titleKey: "p5.title", typeKey: "p5.type", year: "2026",
     descKey: "p5.desc", stack: ["JavaScript", "Charts", "Open Data"],
-    href: "https://alejandroyor.github.io/guate-transparente/", color: "var(--cream)", accent: "var(--bg)", artwork: "chart" },
+    href: "https://alejandroyor.github.io/guate-transparente/", color: "var(--bg-2)", accent: "var(--accent)", artwork: "chart" },
   { n: "05", titleKey: "p4.title", typeKey: "p4.type", yearKey: "p4.year",
     descKey: "p4.desc", stack: ["APIs", "Logs", "Integrations"],
     href: null, color: "var(--bg-2)", accent: "var(--accent)", artwork: "terminal" },
@@ -121,42 +121,42 @@ function ArtChart() {
   return (
     <div style={{
       width: 380, borderRadius: 14, overflow: "hidden",
-      background: "var(--cream-2)", border: "1px solid #E8E6DF",
+      background: "var(--bg)", border: "1px solid rgba(255,255,255,0.10)",
       boxShadow: "0 30px 60px rgba(0,0,0,0.25)", transform: "rotate(-2deg)",
     }}>
       <div style={{
         padding: "10px 14px", display: "flex", alignItems: "center", gap: 8,
-        borderBottom: "1px solid #E8E6DF", background: "var(--cream-2)",
+        borderBottom: "1px solid rgba(255,255,255,0.10)", background: "var(--bg)",
       }}>
         <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FF5F57" }} />
         <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FEBC2E" }} />
         <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#28C840" }} />
         <div style={{
           marginLeft: 12, flex: 1, padding: "4px 10px", borderRadius: 6,
-          background: "var(--cream-2)", border: "1px solid #E8E6DF",
-          fontFamily: "JetBrains Mono, monospace", fontSize: 9.5, color: "rgba(12,12,12,0.6)",
+          background: "var(--bg-2)", border: "1px solid rgba(255,255,255,0.08)",
+          fontFamily: "JetBrains Mono, monospace", fontSize: 9.5, color: "rgba(242,235,220,0.6)",
         }}>alejandroyor.github.io/guate-transparente</div>
       </div>
       <div style={{ padding: 18 }}>
-        <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 13, fontWeight: 500, color: "var(--bg)" }}>Gasto público GT</div>
-        <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 9.5, color: "rgba(12,12,12,0.5)", marginTop: 2, letterSpacing: "0.08em" }}>Q · 2026 · transparencia</div>
+        <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 13, fontWeight: 500, color: "var(--fg)" }}>Gasto público GT</div>
+        <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 9.5, color: "rgba(242,235,220,0.5)", marginTop: 2, letterSpacing: "0.08em" }}>Q · 2026 · transparencia</div>
         <div style={{ display: "flex", alignItems: "flex-end", gap: 8, marginTop: 16, height: 100 }}>
           {bars.map((h, i) => (
             <div key={i} style={{
               flex: 1, height: `${h}%`, borderRadius: "6px 6px 2px 2px",
-              background: i === 3 ? "var(--accent)" : "var(--bg)",
+              background: i === 3 ? "var(--accent)" : "var(--fg)",
               opacity: i === 3 ? 1 : 0.78,
             }} />
           ))}
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10, fontFamily: "JetBrains Mono, monospace", fontSize: 9, color: "rgba(12,12,12,0.45)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10, fontFamily: "JetBrains Mono, monospace", fontSize: 9, color: "rgba(242,235,220,0.45)" }}>
           {["E","F","M","A","M","J","J"].map((m, i) => <span key={i}>{m}</span>)}
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 14 }}>
           {[{k:"Total",v:"Q 18.4B"},{k:"Variación",v:"+4.2%"}].map(s => (
-            <div key={s.k} style={{ padding: "8px 10px", borderRadius: 8, background: "var(--cream)" }}>
-              <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 8.5, color: "rgba(12,12,12,0.55)", letterSpacing: "0.12em" }}>{s.k.toUpperCase()}</div>
-              <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 500, color: "var(--bg)" }}>{s.v}</div>
+            <div key={s.k} style={{ padding: "8px 10px", borderRadius: 8, background: "var(--bg-2)" }}>
+              <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 8.5, color: "rgba(242,235,220,0.55)", letterSpacing: "0.12em" }}>{s.k.toUpperCase()}</div>
+              <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 500, color: "var(--fg)" }}>{s.v}</div>
             </div>
           ))}
         </div>
@@ -448,9 +448,47 @@ function ContactSection({ whatsappNumber, whatsappMessage }) {
         <FadeIn delay={350}>
           <div className="contact-buttons" style={{ marginTop: 44, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <ContactButton href={wa} variant="primary" external icon={<Icon.WhatsApp size={11} />}>{t("contact.wa")}</ContactButton>
-            <ContactButton href="mailto:jjolone1@gmail.com" variant="ghost" icon={<Icon.Mail size={11} />}>{t("contact.email")}</ContactButton>
-            <ContactButton href="https://www.linkedin.com/in/alejandro-jol%C3%B3n-282649186/" variant="ghost" external icon={<Icon.LinkedIn size={11} />}>{t("contact.linkedin")}</ContactButton>
-            <ContactButton href="https://www.behance.net/alejandrojolon" variant="ghost" external icon={<Icon.Behance size={11} />}>{t("contact.behance")}</ContactButton>
+            {[
+              { href: "mailto:jjolone1@gmail.com", iconEl: <Icon.Mail size={11} />, label: t("contact.email"), gradient: "rgba(239, 68, 68, 0.1), rgba(244, 67, 54, 0.05)", border: "rgba(239, 68, 68, 0.3)", hoverGradient: "rgba(239, 68, 68, 0.2), rgba(244, 67, 54, 0.1)" },
+              { href: "https://www.linkedin.com/in/alejandro-jol%C3%B3n-282649186/", iconEl: <Icon.LinkedIn size={11} />, label: t("contact.linkedin"), gradient: "rgba(0, 119, 181, 0.1), rgba(0, 119, 181, 0.05)", border: "rgba(0, 119, 181, 0.3)", hoverGradient: "rgba(0, 119, 181, 0.2), rgba(0, 119, 181, 0.1)", external: true },
+              { href: "https://www.behance.net/alejandrojolon", iconEl: <Icon.Behance size={11} />, label: t("contact.behance"), gradient: "rgba(50, 50, 50, 0.1), rgba(80, 80, 80, 0.05)", border: "rgba(100, 100, 100, 0.3)", hoverGradient: "rgba(50, 50, 50, 0.2), rgba(80, 80, 80, 0.1)", external: true },
+              { href: "https://www.youtube.com/@josealejandrojolonescoto6077", iconEl: <Icon.YouTube size={11} />, label: "youtube", gradient: "rgba(255, 0, 0, 0.1), rgba(192, 0, 0, 0.05)", border: "rgba(255, 0, 0, 0.3)", hoverGradient: "rgba(255, 0, 0, 0.2), rgba(192, 0, 0, 0.1)", external: true },
+            ].map((btn, i) => (
+              <div key={i}
+                style={{
+                  padding: "14px 22px 14px 24px", borderRadius: 999,
+                  background: `linear-gradient(135deg, ${btn.gradient})`,
+                  border: `1px solid ${btn.border}`,
+                  transition: "all 280ms ease",
+                  cursor: "pointer",
+                  display: "flex", alignItems: "center", gap: 10,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(135deg, ${btn.hoverGradient})`;
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(135deg, ${btn.gradient})`;
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}>
+                <a href={btn.href} target={btn.external ? "_blank" : undefined} rel={btn.external ? "noopener noreferrer" : undefined} style={{
+                  display: "inline-flex", alignItems: "center", gap: 10,
+                  fontFamily: "Kanit, sans-serif", fontWeight: 500, fontSize: 15,
+                  color: "var(--fg)", textDecoration: "none", textTransform: "lowercase",
+                  padding: 0, background: "transparent", border: "none", cursor: "pointer",
+                }}>
+                  <span>{btn.label}</span>
+                  <span style={{
+                    display: "inline-flex", alignItems: "center", justifyContent: "center",
+                    width: 22, height: 22, borderRadius: "50%",
+                    background: "rgba(242,235,220,0.14)", color: "var(--fg)",
+                    transition: "all 280ms ease",
+                  }}>
+                    {btn.iconEl}
+                  </span>
+                </a>
+              </div>
+            ))}
           </div>
         </FadeIn>
 
