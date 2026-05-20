@@ -89,6 +89,8 @@ const TRANSLATIONS = {
     "projects.titleItalic": "& cases",
     "projects.intro": "A mix of shipped sites, data tools, practical automations, and real production incidents I've worked through.",
     "projects.visit": "visit live site",
+    "projects.github": "view github",
+    "projects.linkedin": "view linkedin post",
     "projects.internal": "— internal / case study",
     "p1.title": "Personal Portfolio",
     "p1.type": "Personal",
@@ -103,6 +105,9 @@ const TRANSLATIONS = {
     "p4.type": "Experience",
     "p4.year": "ongoing",
     "p4.desc": "A growing collection of real troubleshooting scenarios solved in production — API failures, integration breakages, SSO edge cases, and system inconsistencies.",
+    "p6.title": "NOMAD Centinela",
+    "p6.type": "Security Platform",
+    "p6.desc": "Open-source LATAM security platform with a Next.js dashboard, Flutter citizen app, Fastify backend, Supabase + pgvector, and human-in-the-loop SOC workflows.",
     // contact
     "contact.tag": "/ 05 — GET IN TOUCH",
     "contact.title1": "let's ",

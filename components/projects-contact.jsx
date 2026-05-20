@@ -1,18 +1,25 @@
 // Projects (sticky stacking cards) + Contact + Footer
 
 const PROJECTS = [
-  { n: "01", titleKey: "p1.title", typeKey: "p1.type", yearKey: null, year: "2025",
-    descKey: "p1.desc", stack: ["React", "Tailwind", "Framer Motion"],
-    href: null, color: "var(--cream)", accent: "var(--accent-2)", artwork: "grid" },
+  { n: "01", titleKey: "p6.title", typeKey: "p6.type", year: "2026",
+    descKey: "p6.desc", stack: ["Next.js 15", "Tailwind", "Supabase", "Node.js", "Fastify", "Vercel AI SDK", "MiniMax", "Flutter", "pgvector"],
+    href: "https://nomad-centinela-v2.vercel.app/", github: "https://github.com/shigerudev/HackIndies", post: "https://www.linkedin.com/feed/update/urn:li:activity:7462319677088899072/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACvgqkIB3LvIpzuv24vY4O8HqboQdkfuCEg",
+    color: "linear-gradient(180deg, #04111f 0%, #0b3b66 45%, #2bc6ff 100%)", accent: "#7de2ff", artwork: "nomadLogo", dark: true },
   { n: "02", titleKey: "p2.title", typeKey: "p2.type", year: "2024",
     descKey: "p2.desc", stack: ["JavaScript", "wa.me API", "Netlify"],
-    href: "https://antojitosgt.netlify.app/", color: "var(--bg)", accent: "var(--accent)", artwork: "phone" },
+    href: "https://antojitosgt.netlify.app/",
+    color: "linear-gradient(180deg, #fff5eb 0%, #f7dcc0 45%, #f2b07a 100%)",
+    accent: "#d8502b", artwork: "antojitosLogo" },
   { n: "03", titleKey: "p3.title", typeKey: "p3.type", year: "2024",
     descKey: "p3.desc", stack: ["HTML", "CSS", "JavaScript"],
-    href: "https://alejandroyor.github.io/salud-y-bienestar/", color: "var(--cream)", accent: "var(--bg)", artwork: "browser" },
+    href: "https://alejandroyor.github.io/salud-y-bienestar/", github: "https://github.com/AlejandroYor/salud-y-bienestar",
+    color: "linear-gradient(180deg, #100905 0%, #20110c 48%, #b76a2b 100%)", accent: "#ffb57c", artwork: "saludLogo", dark: true },
   { n: "04", titleKey: "p5.title", typeKey: "p5.type", year: "2026",
     descKey: "p5.desc", stack: ["JavaScript", "Charts", "Open Data"],
-    href: "https://alejandroyor.github.io/guate-transparente/", color: "var(--bg-2)", accent: "var(--accent)", artwork: "chart" },
+    href: "https://alejandroyor.github.io/guate-transparente/",
+    github: "https://github.com/AlejandroYor/guate-transparente",
+    color: "linear-gradient(180deg, #061013 0%, #0d1f27 45%, #142c31 100%)",
+    accent: "#41efd4", artwork: "chart", dark: true },
   { n: "05", titleKey: "p4.title", typeKey: "p4.type", yearKey: "p4.year",
     descKey: "p4.desc", stack: ["APIs", "Logs", "Integrations"],
     href: null, color: "var(--bg-2)", accent: "var(--accent)", artwork: "terminal" },
@@ -69,6 +76,94 @@ function ArtPhone() {
   );
 }
 
+function ArtAntojitosLogo() {
+  return (
+    <div style={{
+      width: 360, height: 320, borderRadius: 22, overflow: "hidden",
+      background: "linear-gradient(180deg, #fbf5ea 0%, #f3e7d6 100%)",
+      border: "1px solid rgba(60,40,30,0.06)", boxShadow: "0 30px 60px rgba(0,0,0,0.12)",
+      display: "flex", alignItems: "center", justifyContent: "center", position: "relative",
+      padding: 18,
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <div style={{ width: 120, height: 120, position: "relative" }}>
+          <svg viewBox="0 0 120 120" width="120" height="120" style={{ display: "block" }} xmlns="http://www.w3.org/2000/svg">
+            <path d="M60,8 C88,8 110,30 110,58 C110,86 88,108 60,108 C32,108 10,86 10,58 C10,30 32,8 60,8 Z" fill="#f05a24" />
+            <circle cx="82" cy="30" r="14" fill="#ffffff" />
+            <ellipse cx="40" cy="78" rx="28" ry="18" fill="rgba(255,255,255,0.06)" />
+          </svg>
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+          <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 32, fontWeight: 800, color: "#3b271f", lineHeight: 1 }}>{/* title */}
+            antojitos gt
+          </div>
+          <div style={{ marginTop: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 12, color: "#6aa84f", textTransform: "lowercase" }}>
+            whatsapp ordering
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ArtSaludLogo() {
+  return (
+    <div style={{
+      width: 340, height: 320, borderRadius: 30, overflow: "hidden",
+      background: "linear-gradient(180deg, #0f0907 0%, #1f110c 48%, #c87335 100%)",
+      border: "1px solid rgba(255,255,255,0.08)",
+      boxShadow: "0 30px 90px rgba(0,0,0,0.42)",
+      position: "relative", display: "flex", alignItems: "center", justifyContent: "center",
+    }}>
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: "radial-gradient(circle at 20% 18%, rgba(255,160,90,0.18), transparent 24%), radial-gradient(circle at 70% 75%, rgba(255,140,60,0.12), transparent 24%)",
+        pointerEvents: "none",
+      }} />
+      <div style={{
+        width: 280, padding: 24, borderRadius: 28, background: "rgba(255,255,255,0.05)",
+        border: "1px solid rgba(255,255,255,0.12)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.04), 0 20px 40px rgba(0,0,0,0.17)",
+        backdropFilter: "blur(10px)", position: "relative", zIndex: 1,
+        display: "flex", flexDirection: "column", alignItems: "center", gap: 18,
+      }}>
+        <div style={{
+          width: 90, height: 90, borderRadius: 30, background: "linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04))",
+          border: "1px solid rgba(255,255,255,0.18)", display: "grid", placeItems: "center",
+          boxShadow: "0 18px 36px rgba(0,0,0,0.18)",
+        }}>
+          <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="saludMark" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffbb72" />
+                <stop offset="100%" stopColor="#ff8d3f" />
+              </linearGradient>
+            </defs>
+            <path d="M20 14 C20 10 25 8 29 8 H35 C39 8 44 10 44 14 V23 C44 44 36 52 28 52 C19 52 14 44 14 34 C14 24 20 14 20 14 Z" fill="url(#saludMark)" />
+            <path d="M31 19 L31 45" stroke="#fff" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+            <path d="M19 31 L45 31" stroke="#fff" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+          </svg>
+        </div>
+        <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, textAlign: "center" }}>
+          <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 28, fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>
+            salud y
+          </div>
+          <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 44, fontWeight: 900, color: "#ffcd9c", lineHeight: 1, letterSpacing: "-0.05em" }}>
+            Bienestar
+          </div>
+          <div style={{ marginTop: 6, fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.18em", color: "rgba(255,255,255,0.72)", textTransform: "uppercase" }}>
+            catalog & contact site
+          </div>
+        </div>
+        <div style={{ width: "100%", height: 1, background: "rgba(255,255,255,0.14)", marginTop: 6 }} />
+        <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 12, color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "0.16em" }}>
+          2024 · wellness distributor
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ArtBrowser({ light = true }) {
   return (
     <div style={{
@@ -116,47 +211,111 @@ function ArtBrowser({ light = true }) {
   );
 }
 
+function ArtNomadLogo() {
+  return (
+    <div style={{
+      width: 360, height: 320, borderRadius: 28, overflow: "hidden",
+      background: "linear-gradient(180deg, #04111f 0%, #0b3b66 45%, #2bc6ff 100%)",
+      border: "1px solid rgba(255,255,255,0.14)",
+      boxShadow: "0 30px 60px rgba(0,0,0,0.32)", transform: "rotate(-2deg)",
+      display: "flex", alignItems: "center", justifyContent: "center", position: "relative",
+    }}>
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: "radial-gradient(circle at top left, rgba(60,198,255,0.2), transparent 28%), radial-gradient(circle at bottom right, rgba(114,242,255,0.18), transparent 24%)",
+        opacity: 0.9,
+      }} />
+      <div style={{
+        position: "relative", display: "flex", flexDirection: "column", alignItems: "center", gap: 18,
+        padding: 24, color: "rgba(255,255,255,0.95)", textAlign: "center",
+      }}>
+        <div style={{
+          width: 120, height: 120, borderRadius: 32,
+          background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.16)",
+          display: "grid", placeItems: "center",
+          boxShadow: "0 18px 40px rgba(0,0,0,0.22)",
+        }}>
+          <div style={{
+            width: 72, height: 72, borderRadius: 18,
+            background: "linear-gradient(135deg, rgba(60,198,255,0.95), rgba(1,104,170,0.95))",
+            display: "grid", placeItems: "center",
+            boxShadow: "inset 0 0 0 2px rgba(255,255,255,0.25)",
+          }}>
+            <div style={{
+              width: 34, height: 42, borderRadius: 10,
+              background: "rgba(255,255,255,0.95)",
+              clipPath: "polygon(50% 0%, 100% 25%, 100% 80%, 50% 100%, 0% 80%, 0% 25%)",
+            }} />
+          </div>
+        </div>
+        <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 27, fontWeight: 600, letterSpacing: "-0.03em" }}>NOMAD</div>
+        <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 12, letterSpacing: "0.18em", color: "rgba(255,255,255,0.7)", textTransform: "uppercase" }}>
+          CENTINELA
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ArtChart() {
   const bars = [60, 80, 45, 92, 70, 55, 88];
   return (
     <div style={{
-      width: 380, borderRadius: 14, overflow: "hidden",
-      background: "var(--bg)", border: "1px solid rgba(255,255,255,0.10)",
-      boxShadow: "0 30px 60px rgba(0,0,0,0.25)", transform: "rotate(-2deg)",
+      width: 380, borderRadius: 18, overflow: "hidden",
+      background: "linear-gradient(180deg, #061116 0%, #0a232b 44%, #112f35 100%)",
+      border: "1px solid rgba(65, 237, 212, 0.12)",
+      boxShadow: "0 28px 70px rgba(4, 18, 20, 0.32)", transform: "rotate(-2deg)",
     }}>
       <div style={{
-        padding: "10px 14px", display: "flex", alignItems: "center", gap: 8,
-        borderBottom: "1px solid rgba(255,255,255,0.10)", background: "var(--bg)",
+        padding: "12px 14px", display: "flex", alignItems: "center", gap: 8,
+        borderBottom: "1px solid rgba(65, 237, 212, 0.08)", background: "rgba(7, 22, 29, 0.96)",
       }}>
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FF5F57" }} />
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FEBC2E" }} />
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#28C840" }} />
+        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#38ffc8" }} />
+        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#34d8b7" }} />
+        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#23a391" }} />
         <div style={{
-          marginLeft: 12, flex: 1, padding: "4px 10px", borderRadius: 6,
-          background: "var(--bg-2)", border: "1px solid rgba(255,255,255,0.08)",
-          fontFamily: "JetBrains Mono, monospace", fontSize: 9.5, color: "rgba(242,235,220,0.6)",
+          marginLeft: 12, flex: 1, padding: "5px 12px", borderRadius: 8,
+          background: "rgba(8, 30, 36, 0.9)",
+          border: "1px solid rgba(65, 237, 212, 0.12)",
+          fontFamily: "JetBrains Mono, monospace", fontSize: 9.5,
+          color: "rgba(225, 248, 240, 0.7)",
         }}>alejandroyor.github.io/guate-transparente</div>
       </div>
       <div style={{ padding: 18 }}>
-        <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 13, fontWeight: 500, color: "var(--fg)" }}>Gasto público GT</div>
-        <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 9.5, color: "rgba(242,235,220,0.5)", marginTop: 2, letterSpacing: "0.08em" }}>Q · 2026 · transparencia</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 700, color: "#e9f9f4", letterSpacing: "0.06em", textTransform: "uppercase" }}>Gasto público GT</div>
+          <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 10.5, color: "rgba(229, 249, 242, 0.66)", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+            Q · 2026 · transparencia
+          </div>
+        </div>
         <div style={{ display: "flex", alignItems: "flex-end", gap: 8, marginTop: 16, height: 100 }}>
           {bars.map((h, i) => (
             <div key={i} style={{
-              flex: 1, height: `${h}%`, borderRadius: "6px 6px 2px 2px",
-              background: i === 3 ? "var(--accent)" : "var(--fg)",
-              opacity: i === 3 ? 1 : 0.78,
+              flex: 1, height: `${h}%`, borderRadius: "8px 8px 3px 3px",
+              background: i === 3 ? "#41efd4" : "rgba(255,255,255,0.14)",
+              opacity: i === 3 ? 1 : 0.82,
+              boxShadow: i === 3 ? "0 10px 24px rgba(65, 237, 212, 0.24)" : "none",
             }} />
           ))}
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10, fontFamily: "JetBrains Mono, monospace", fontSize: 9, color: "rgba(242,235,220,0.45)" }}>
-          {["E","F","M","A","M","J","J"].map((m, i) => <span key={i}>{m}</span>)}
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 12, fontFamily: "JetBrains Mono, monospace", fontSize: 10, color: "rgba(225, 248, 240, 0.65)" }}>
+          {["E","F","M","A","M","J","J"].map((m, i) => (
+            <span key={i} style={{ color: i === 3 ? "#41efd4" : "rgba(225, 248, 240, 0.55)" }}>{m}</span>
+          ))}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 14 }}>
-          {[{k:"Total",v:"Q 18.4B"},{k:"Variación",v:"+4.2%"}].map(s => (
-            <div key={s.k} style={{ padding: "8px 10px", borderRadius: 8, background: "var(--bg-2)" }}>
-              <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 8.5, color: "rgba(242,235,220,0.55)", letterSpacing: "0.12em" }}>{s.k.toUpperCase()}</div>
-              <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 500, color: "var(--fg)" }}>{s.v}</div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 18 }}>
+          {[
+            { k: "TOTAL", v: "Q 18.4B", accent: "#ffffff" },
+            { k: "VARIACIÓN", v: "+4.2%", accent: "#41efd4" },
+          ].map(s => (
+            <div key={s.k} style={{
+              padding: "12px 14px", borderRadius: 14,
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(65, 237, 212, 0.12)",
+              boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.02)",
+            }}>
+              <div style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 8.5, color: "rgba(225, 248, 240, 0.55)", letterSpacing: "0.16em" }}>{s.k}</div>
+              <div style={{ fontFamily: "Kanit, sans-serif", fontSize: 20, fontWeight: 700, color: s.accent, marginTop: 4 }}>{s.v}</div>
             </div>
           ))}
         </div>
@@ -234,7 +393,7 @@ function ArtGrid() {
 
 function ProjectCard({ p, i, total }) {
   const { t } = useT();
-  const isDark = p.color === "var(--bg)" || p.color === "var(--bg-2)";
+  const isDark = p.dark || p.color === "var(--bg)" || p.color === "var(--bg-2)";
   const fg = isDark ? "var(--fg)" : "var(--bg)";
   const fgMuted = isDark ? "rgba(242,235,220,0.65)" : "rgba(12,12,12,0.65)";
   const accentFg = p.accent;
@@ -244,6 +403,9 @@ function ProjectCard({ p, i, total }) {
     browser: <ArtBrowser light />,
     chart: <ArtChart />,
     terminal: <ArtTerminal />,
+    nomadLogo: <ArtNomadLogo />,
+    saludLogo: <ArtSaludLogo />,
+    antojitosLogo: <ArtAntojitosLogo />,
   }[p.artwork];
 
   // sticky stacking offset — each card sticks at top with offset growing per index
@@ -316,28 +478,60 @@ function ProjectCard({ p, i, total }) {
             ))}
           </div>
 
-          {p.href ? (
-            <a href={p.href} target="_blank" rel="noopener noreferrer" style={{
-              display: "inline-flex", alignItems: "center", gap: 10,
-              fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 500,
-              color: accentFg, textDecoration: "none", marginTop: 6,
-              alignSelf: "flex-start", textTransform: "lowercase",
-            }}>
-              {t("projects.visit")}
-              <span style={{
-                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                width: 28, height: 28, borderRadius: "50%",
-                background: accentFg, color: isDark ? "var(--bg)" : "var(--fg)",
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 10 }}>
+            {p.href && (
+              <a href={p.href} target="_blank" rel="noopener noreferrer" style={{
+                display: "inline-flex", alignItems: "center", gap: 10,
+                padding: "10px 16px", borderRadius: 999,
+                fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 500,
+                color: accentFg, textDecoration: "none",
+                border: `1px solid ${accentFg}`,
+                background: isDark ? "rgba(255,255,255,0.06)" : "rgba(12,12,12,0.06)",
+                textTransform: "lowercase",
               }}>
-                <Icon.Arrow size={12} />
-              </span>
-            </a>
-          ) : (
-            <span style={{
-              fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.15em",
-              color: fgMuted, marginTop: 6,
-            }}>{t("projects.internal")}</span>
-          )}
+                {t("projects.visit")}
+                <span style={{
+                  display: "inline-flex", alignItems: "center", justifyContent: "center",
+                  width: 28, height: 28, borderRadius: "50%",
+                  background: accentFg, color: isDark ? "var(--bg)" : "var(--fg)",
+                }}>
+                  <Icon.Arrow size={12} />
+                </span>
+              </a>
+            )}
+            {p.github && (
+              <a href={p.github} target="_blank" rel="noopener noreferrer" style={{
+                padding: "10px 16px", borderRadius: 999,
+                display: "inline-flex", alignItems: "center", gap: 10,
+                fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 500,
+                color: accentFg, textDecoration: "none",
+                border: `1px solid ${accentFg}`,
+                background: isDark ? "rgba(255,255,255,0.06)" : "rgba(12,12,12,0.06)",
+                textTransform: "lowercase",
+              }}>
+                {t("projects.github")}
+              </a>
+            )}
+            {p.post && (
+              <a href={p.post} target="_blank" rel="noopener noreferrer" style={{
+                padding: "10px 16px", borderRadius: 999,
+                display: "inline-flex", alignItems: "center", gap: 10,
+                fontFamily: "Kanit, sans-serif", fontSize: 14, fontWeight: 500,
+                color: accentFg, textDecoration: "none",
+                border: `1px solid ${accentFg}`,
+                background: isDark ? "rgba(255,255,255,0.06)" : "rgba(12,12,12,0.06)",
+                textTransform: "lowercase",
+              }}>
+                {t("projects.linkedin")}
+              </a>
+            )}
+            {!p.href && !p.github && !p.post && (
+              <span style={{
+                fontFamily: "JetBrains Mono, monospace", fontSize: 11, letterSpacing: "0.15em",
+                color: fgMuted, marginTop: 6,
+              }}>{t("projects.internal")}</span>
+            )}
+          </div>
         </div>
 
         {/* artwork */}
