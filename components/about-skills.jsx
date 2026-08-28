@@ -3,18 +3,21 @@
 function AboutSection() {
   const { t } = useT();
   const companyLinks = [
+    'https://www.tigo.com.gt/',
     'https://monday.com/',
     'https://weareeverise.com/',
     'https://www.delonghi.com/it-it',
     'https://grupoeconsa.com/'
   ];
   const gradients = [
+    "linear-gradient(135deg, rgba(0, 87, 184, 0.1), rgba(0, 174, 239, 0.1))", // tigo blue
     "linear-gradient(135deg, rgba(255, 0, 127, 0.1), rgba(124, 58, 237, 0.1))", // monday pink-purple
     "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1))", // everise blue-teal
     "linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.1))", // atento red-orange
     "linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1))"  // grupo econsa green
   ];
   const hoverGradients = [
+    "linear-gradient(135deg, rgba(0, 87, 184, 0.2), rgba(0, 174, 239, 0.2))",
     "linear-gradient(135deg, rgba(255, 0, 127, 0.2), rgba(124, 58, 237, 0.2))",
     "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2))",
     "linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(251, 146, 60, 0.2))",
@@ -76,6 +79,7 @@ function AboutSection() {
             <FadeIn delay={400}>
               <div style={{ marginTop: 60, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
                 {[
+                  { role: t("exp.role0"), company: "Tigo B2B Guatemala", date: t("exp.date0"), note: t("exp.note0") },
                   { role: t("exp.role1"), company: "monday.com", date: t("exp.date1"), note: t("exp.note1") },
                   { role: t("exp.role2"), company: "Everise", date: t("exp.date2"), note: t("exp.note2") },
                   { role: t("exp.role3"), company: "Atento", date: t("exp.date3"), note: t("exp.note3") },
@@ -86,7 +90,7 @@ function AboutSection() {
                     gap: 24, padding: "22px 0",
                     borderBottom: "1px solid rgba(255,255,255,0.06)",
                     alignItems: "baseline",
-                    ...(i < 4 ? {
+                    ...(i < 5 ? {
                       background: gradients[i],
                       borderRadius: "8px",
                       padding: "22px 16px",
@@ -96,21 +100,21 @@ function AboutSection() {
                     } : {}),
                   }}
                   onMouseEnter={(e) => {
-                    if (i < 4) {
+                    if (i < 5) {
                       e.currentTarget.style.background = hoverGradients[i];
                       e.currentTarget.style.transform = "translateY(-2px)";
                       e.currentTarget.style.boxShadow = `0 4px 12px ${gradients[i].replace('0.1', '0.3').replace('0.2', '0.3')}`;
                     }
                   }}
                   onMouseLeave={(e) => {
-                    if (i < 4) {
+                    if (i < 5) {
                       e.currentTarget.style.background = gradients[i];
                       e.currentTarget.style.transform = "translateY(0)";
                       e.currentTarget.style.boxShadow = "none";
                     }
                   }}
                   onClick={() => {
-                    if (i < 4) window.open(companyLinks[i], '_blank');
+                    if (i < 5) window.open(companyLinks[i], '_blank');
                   }}
                   >
                     <span className="exp-date" style={{ fontFamily: "JetBrains Mono, monospace", fontSize: 11, color: "rgba(242,235,220,0.4)", letterSpacing: "0.1em" }}>{e.date}</span>
@@ -135,8 +139,8 @@ const SKILL_DATA = [
     itemKeys: ["skills.cat1.i1","skills.cat1.i2","skills.cat1.i3","skills.cat1.i4"],
     tags: ["B2B", "Enterprise", "SLA"] },
   { labelKey: "skills.cat2", code: "02", icon: "Bug",
-    itemKeys: ["skills.cat2.i1","skills.cat2.i2","skills.cat2.i3","skills.cat2.i4"],
-    tags: ["MySQL", "PostgreSQL", "Oracle"] },
+    itemKeys: ["skills.cat2.i1","skills.cat2.i2","skills.cat2.i3","skills.cat2.i4","skills.cat2.i5"],
+    tags: ["MySQL", "PostgreSQL", "Oracle", "R"] },
   { labelKey: "skills.cat3", code: "03", icon: "Code",
     itemKeys: ["skills.cat3.i1","skills.cat3.i2","skills.cat3.i3","skills.cat3.i4"],
     tags: ["Python", "Java", "React"] },
@@ -308,6 +312,7 @@ function SkillsSection() {
             <SkillsTickerRow items={[
               "MySQL", "PostgreSQL", "Oracle", "SQL Server", "GraphQL", "Python", "Java", "C#",
               "TypeScript", "Node.js", "React", "REST", "OAuth", "SAML", "ETL", "Tailwind", "Git", "Postman", "Azure",
+              "R", "Shiny",
             ]} />
           </div>
         </FadeIn>

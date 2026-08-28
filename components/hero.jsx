@@ -28,7 +28,7 @@ function Nav({ onContact, accent }) {
         display: "flex",
         alignItems: "center",
         gap: 8,
-        padding: "8px 8px 8px 22px",
+        padding: "8px 8px 8px 8px",
         borderRadius: 999,
         background: scrolled ? "rgba(20,20,20,0.72)" : "rgba(20,20,20,0.42)",
         backdropFilter: "blur(18px) saturate(140%)",
@@ -37,11 +37,7 @@ function Nav({ onContact, accent }) {
         transition: "background 300ms ease",
         fontFamily: "Kanit, sans-serif"
       }}>
-      
-      <a href="#top" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--fg)", textDecoration: "none", paddingRight: 14, borderRight: "1px solid rgba(255,255,255,0.10)" }}>
-        <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 12px var(--accent)" }} />
-        <span className="nav-logo-text" style={{ fontWeight: 600, letterSpacing: "0.02em", fontSize: 14 }}>alejandro<span style={{ color: "rgba(242,235,220,0.5)", fontWeight: 300 }}>.dev</span></span>
-      </a>
+
       <ul style={{ display: "flex", gap: 2, listStyle: "none", margin: 0, padding: "0 6px" }}>
         {links.map((l) =>
         <li key={l.id}>
@@ -222,8 +218,6 @@ function HeroSection({ heroVariant = "split" }) {
       <GlowBlob />
 
       <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
-        <FadeIn delay={50}><StatusChip>{t("hero.available")}</StatusChip></FadeIn>
-
         <div className="hero-grid" style={{
           display: "grid",
           gridTemplateColumns: heroVariant === "split" ? "minmax(0, 1fr) 360px" : "minmax(0,1fr)",
@@ -267,7 +261,6 @@ function HeroSection({ heroVariant = "split" }) {
               <div style={{ display: "flex", gap: 14, marginTop: 36, flexWrap: "wrap" }}>
                 <ContactButton href="#contact" variant="primary">{t("hero.cta1")}</ContactButton>
                 <ContactButton href="#projects" variant="ghost">{t("hero.cta2")}</ContactButton>
-                <ContactButton href="assets/cv-alejandro-jolon.pdf" external variant="ghost" icon={<Icon.Arrow size={11} />} style={{ borderColor: "rgba(242,235,220,0.28)" }} className="cv-download-btn">{t("hero.cta3")}</ContactButton>
               </div>
             </FadeIn>
 

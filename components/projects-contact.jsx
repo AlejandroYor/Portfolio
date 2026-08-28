@@ -695,7 +695,7 @@ function ContactSection({ whatsappNumber, whatsappMessage }) {
           }}>
             {[
               { k: t("contact.email_k"), v: "jjolone1@gmail.com" },
-              { k: t("contact.wa_k"), v: "+502 5423 1394" },
+              { k: t("contact.wa_k"), v: "+502 3313 6025" },
               { k: t("contact.loc_k"), v: t("contact.loc_v") },
               { k: t("contact.time_k"), v: `${hh}:${mm}:${ss}`, mono: true },
             ].map((c) => (
